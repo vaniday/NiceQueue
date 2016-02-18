@@ -1,0 +1,16 @@
+{
+  "name": "NiceQueue.Abstract.Tests",
+  "dependencies": {
+    "NiceQueue.Abstract": "1.0.0",
+    "Microsoft.Dnx.Watcher": "1.0.0-rc1-final",
+    "nunit": "3.0.1",
+    "nunitlite": "3.0.1"
+  },
+  "commands": {
+    "test": "NiceQueue.Abstract.Tests",
+    "watch": "Microsoft.Dnx.Watcher test"
+  },
+  "frameworks": {
+    "dnx451": {}
+  }
+}

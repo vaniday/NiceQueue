@@ -1,0 +1,17 @@
+{
+  "name": "NiceQueue.Abstract",
+  "version": "1.0.0-*",
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+  "tooling": {
+    "defaultNamespace": "NiceQueue.Abstract"
+  },
+  "dependencies": {
+  },
+  "commands": {
+  },
+  "frameworks": {
+    "dnx451": {}
+  }
+}
