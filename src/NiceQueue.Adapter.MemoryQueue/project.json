@@ -1,0 +1,19 @@
+{
+  "name": "NiceQueue.Adapter.MemoryQueue",
+  "version": "1.0.0-*",
+  "compilationOptions": {
+    "emitEntryPoint": false
+  },
+  "tooling": {
+    "defaultNamespace": "NiceQueue.Adapter.MemoryQueue"
+  },
+  "dependencies": {
+    "NiceQueue": "1.0.0",
+    "Newtonsoft.Json": "8.0.2",
+    "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final"
+  },
+  "commands": {},
+  "frameworks": {
+    "dnx451": {}
+  }
+}
