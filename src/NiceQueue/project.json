@@ -1,11 +1,11 @@
 {
-  "name": "NiceQueue.Abstract",
+  "name": "NiceQueue",
   "version": "1.0.0-*",
   "compilationOptions": {
-    "emitEntryPoint": true
+    "emitEntryPoint": false
   },
   "tooling": {
-    "defaultNamespace": "NiceQueue.Abstract"
+    "defaultNamespace": "NiceQueue"
   },
   "dependencies": {
   },

@@ -1,7 +1,12 @@
 # NiceQueue
 C# .NET Abstraction for AMQP clients
 
-Currently supporting: AmazonSQS, RabitMQ, FileQueue, MemoryQueue
+Currently supporting: AmazonSQS, MemoryQueue
+To be implemented: RabitMQ, FileQueue
+
+## TODO
+
+Add support for other types of serializers (currently using Json.NET only)
 
 ## Usage
 

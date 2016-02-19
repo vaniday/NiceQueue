@@ -2,14 +2,16 @@
   "name": "NiceQueue.Adapter.AmazonSQS",
   "version": "1.0.0-*",
   "compilationOptions": {
-    "emitEntryPoint": true
+    "emitEntryPoint": false
   },
   "tooling": {
     "defaultNamespace": "NiceQueue.Adapter.AmazonSQS"
   },
   "dependencies": {
-    "NiceQueue.Abstract": "1.0.0",
-    "AWSSDK.SQS": "3.1.0.5"
+    "NiceQueue": "1.0.0",
+    "AWSSDK.SQS": "3.1.0.5",
+    "Newtonsoft.Json": "8.0.2",
+    "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final"
   },
   "commands": {},
   "frameworks": {
