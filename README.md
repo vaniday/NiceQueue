@@ -2,6 +2,7 @@
 C# .NET Abstraction for AMQP clients
 
 Currently supporting: AmazonSQS, MemoryQueue
+
 To be implemented: RabitMQ, FileQueue
 
 ## TODO

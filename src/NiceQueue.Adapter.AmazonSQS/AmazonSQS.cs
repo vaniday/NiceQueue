@@ -55,7 +55,7 @@ namespace NiceQueue.Adapter.AmazonSQS
             }
         }
 
-        public void Dequeue<T>(string queueName, Func<T, bool> callback)
+        public bool Dequeue<T>(string queueName, Func<T, bool> callback)
         {
             var result = Client.ReceiveMessage(new ReceiveMessageRequest
                 {
@@ -77,6 +77,8 @@ namespace NiceQueue.Adapter.AmazonSQS
                         Delete(queueName, message.ReceiptHandle);
                     }
                 }
+                
+                return result.Messages.Count > 0;
             } else {
                 throw new CouldNotFetchMessageException(String.Format("Status code: {0}", result.HttpStatusCode));
             }

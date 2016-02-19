@@ -28,24 +28,30 @@ namespace NiceQueue.Adapter.MemoryQueue
             queue.Enqueue(typeof(T) == typeof(string) ? (string)(object)payload : JsonConvert.SerializeObject(payload));
         }
 
-        public void Dequeue<T>(string queueName, Func<T, bool> callback)
+        public bool Dequeue<T>(string queueName, Func<T, bool> callback)
         {
             var queue = GetQueue(queueName);
 
             string result;
             queue.TryDequeue(out result);
             
-            dynamic returnValue;
-            
-            if (typeof(T) == typeof(string)) {
-                returnValue = result;
-            } else {
-                returnValue = JsonConvert.DeserializeObject<T>(result);
+            if (result != null) {
+                dynamic returnValue;
+                
+                if (typeof(T) == typeof(string)) {
+                    returnValue = result;
+                } else {
+                    returnValue = JsonConvert.DeserializeObject<T>(result);
+                }
+
+                if (!callback(returnValue)) {
+                    Enqueue<T>(queueName, returnValue);
+                }
+                
+                return true;
             }
 
-            if (!callback(returnValue)) {
-                Enqueue<T>(queueName, returnValue);
-            }
+            return false;
         }
 
         public void Delete(string queueName, string receiptHandle)
