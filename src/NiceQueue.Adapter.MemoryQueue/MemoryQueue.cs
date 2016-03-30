@@ -6,10 +6,13 @@ namespace NiceQueue.Adapter.MemoryQueue
 {
     public class MemoryQueue : IQueueService
     {
+        public JsonSerializerSettings JsonSerializerSettings { get; set; }
+
         ConcurrentDictionary<string, ConcurrentQueue<string>> Queues;
 
         public MemoryQueue()
         {
+            JsonSerializerSettings = new JsonSerializerSettings();
             Queues = new ConcurrentDictionary<string, ConcurrentQueue<string>>();
         }
 
@@ -25,7 +28,7 @@ namespace NiceQueue.Adapter.MemoryQueue
         {
             var queue = GetQueue(queueName);
 
-            queue.Enqueue(typeof(T) == typeof(string) ? (string)(object)payload : JsonConvert.SerializeObject(payload));
+            queue.Enqueue(typeof(T) == typeof(string) ? (string)(object)payload : JsonConvert.SerializeObject(payload, JsonSerializerSettings));
         }
 
         public bool Dequeue<T>(string queueName, Func<T, bool> callback)

@@ -1,9 +1,16 @@
 {
   "name": "NiceQueue",
-  "version": "0.5.1-*",
-  "authors": [ "Vaniday Team" ],
-  "owners": [ "vaniday" ],
-  "tags": [ "queue", "amazonsqs" ],
+  "version": "0.6.0-*",
+  "authors": [
+    "Vaniday Team"
+  ],
+  "owners": [
+    "vaniday"
+  ],
+  "tags": [
+    "queue",
+    "amazonsqs"
+  ],
   "description": "Simple abstraction layer for AmazonSQS, RabbitMQ, MemoryQueue and FileQueue",
   "compilationOptions": {
     "emitEntryPoint": false
@@ -12,15 +19,10 @@
     "defaultNamespace": "NiceQueue"
   },
   "dependencies": {
+    "Newtonsoft.JSON": "8.0.3"
   },
-  "commands": {
-  },
+  "commands": {},
   "frameworks": {
-    "dnxcore50": {
-        "dependencies": {
-            "System.ComponentModel": "4.0.1-*"
-        }
-    },
     "net451": {}
   }
 }

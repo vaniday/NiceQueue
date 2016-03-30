@@ -9,12 +9,16 @@ namespace NiceQueue.Adapter.AmazonSQS
 {
     public class AmazonSQS : IQueueService
     {
+        public JsonSerializerSettings JsonSerializerSettings { get; set; }
+        
         AmazonSQSClient Client;
         AmazonSQSConfig ClientConfig;
         AmazonSQSClientConfig Config;
 
         public AmazonSQS(IOptions<AmazonSQSClientConfig> config)
         {
+            JsonSerializerSettings = new JsonSerializerSettings();
+            
             Config = config.Value;
             
             ClientConfig = new AmazonSQSConfig
@@ -48,7 +52,7 @@ namespace NiceQueue.Adapter.AmazonSQS
 
         public void Enqueue<T>(string queueName, T payload)
         {
-            var result = Client.SendMessage(GetQueueUrl(queueName), typeof(T) == typeof(string) ? (string)(object)payload : JsonConvert.SerializeObject(payload));
+            var result = Client.SendMessage(GetQueueUrl(queueName), typeof(T) == typeof(string) ? (string)(object)payload : JsonConvert.SerializeObject(payload, JsonSerializerSettings));
             
             if (result.HttpStatusCode != HttpStatusCode.OK) {
                 throw new CouldNotDeleteMessageException(String.Format("Status code: {0}", result.HttpStatusCode));

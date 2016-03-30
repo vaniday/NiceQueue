@@ -1,6 +1,6 @@
 {
   "name": "NiceQueue.Adapter.MemoryQueue",
-  "version": "0.5.1-*",
+  "version": "0.6.0-*",
   "compilationOptions": {
     "emitEntryPoint": false
   },
@@ -8,13 +8,12 @@
     "defaultNamespace": "NiceQueue.Adapter.MemoryQueue"
   },
   "dependencies": {
-    "NiceQueue": "1.0.0",
-    "Newtonsoft.Json": "8.0.2",
-    "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final"
+    "NiceQueue": "0.6.0",
+    "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
+    "Newtonsoft.JSON": "8.0.3"
   },
   "commands": {},
   "frameworks": {
-    "dnxcore50": {},
     "net451": {}
   }
 }
