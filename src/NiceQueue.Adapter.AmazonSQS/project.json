@@ -1,6 +1,6 @@
 {
   "name": "NiceQueue.Adapter.AmazonSQS",
-  "version": "0.5.0-*",
+  "version": "0.5.1-*",
   "authors": [ "Vaniday Team" ],
   "owners": [ "vaniday" ],
   "tags": [ "queue", "amazonsqs" ],
@@ -12,7 +12,7 @@
     "defaultNamespace": "NiceQueue.Adapter.AmazonSQS"
   },
   "dependencies": {
-    "NiceQueue": "0.5.0",
+    "NiceQueue": "0.5.1",
     "AWSSDK.SQS": "3.1.0.5",
     "Newtonsoft.Json": "8.0.2",
     "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final"
