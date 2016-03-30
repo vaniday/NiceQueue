@@ -19,11 +19,6 @@
   },
   "commands": {},
   "frameworks": {
-    "dnxcore50": {
-        "dependencies": {
-            "System.ComponentModel": "4.0.1-*"
-        }
-    },
     "net451": {}
   }
 }
