@@ -1,9 +1,16 @@
 {
   "name": "NiceQueue.Adapter.AmazonSQS",
-  "version": "0.5.1-*",
-  "authors": [ "Vaniday Team" ],
-  "owners": [ "vaniday" ],
-  "tags": [ "queue", "amazonsqs" ],
+  "version": "0.5.3-*",
+  "authors": [
+    "Vaniday Team"
+  ],
+  "owners": [
+    "vaniday"
+  ],
+  "tags": [
+    "queue",
+    "amazonsqs"
+  ],
   "description": "Simple abstraction layer for AmazonSQS, RabbitMQ, MemoryQueue and FileQueue",
   "compilationOptions": {
     "emitEntryPoint": false
@@ -13,9 +20,9 @@
   },
   "dependencies": {
     "NiceQueue": "0.5.1",
-    "AWSSDK.SQS": "3.1.0.5",
-    "Newtonsoft.Json": "8.0.2",
-    "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final"
+    "Newtonsoft.Json": "8.0.3",
+    "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
+    "AWSSDK.SQS": "3.2.3-beta"
   },
   "commands": {},
   "frameworks": {
