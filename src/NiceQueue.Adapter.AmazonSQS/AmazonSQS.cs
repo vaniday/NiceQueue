@@ -3,7 +3,7 @@ using System.Net;
 using Amazon.SQS;
 using Amazon.SQS.Model;
 using Newtonsoft.Json;
-using Microsoft.Extensions.OptionsModel;
+using Microsoft.Extensions.Options;
 
 namespace NiceQueue.Adapter.AmazonSQS
 {
@@ -41,7 +41,7 @@ namespace NiceQueue.Adapter.AmazonSQS
 
         protected string GetQueueUrl(string queueName)
         {
-            var result = Client.GetQueueUrl(queueName);
+            var result = Client.GetQueueUrlAsync(queueName).Result;
             
             if (result.HttpStatusCode != HttpStatusCode.OK) {
                 throw new Exception(String.Format("Error while trying to get queue url. Status code: {0}", result.HttpStatusCode));
@@ -52,7 +52,7 @@ namespace NiceQueue.Adapter.AmazonSQS
 
         public void Enqueue<T>(string queueName, T payload)
         {
-            var result = Client.SendMessage(GetQueueUrl(queueName), typeof(T) == typeof(string) ? (string)(object)payload : JsonConvert.SerializeObject(payload, JsonSerializerSettings));
+            var result = Client.SendMessageAsync(GetQueueUrl(queueName), typeof(T) == typeof(string) ? (string)(object)payload : JsonConvert.SerializeObject(payload, JsonSerializerSettings)).Result;
             
             if (result.HttpStatusCode != HttpStatusCode.OK) {
                 throw new CouldNotDeleteMessageException(String.Format("Status code: {0}", result.HttpStatusCode));
@@ -61,11 +61,11 @@ namespace NiceQueue.Adapter.AmazonSQS
 
         public bool Dequeue<T>(string queueName, Func<T, bool> callback)
         {
-            var result = Client.ReceiveMessage(new ReceiveMessageRequest
+            var result = Client.ReceiveMessageAsync(new ReceiveMessageRequest
                 {
                     QueueUrl = GetQueueUrl(queueName),
                     MaxNumberOfMessages = 10
-                });
+                }).Result;
 
             if (result.HttpStatusCode == HttpStatusCode.OK) {
                 dynamic returnValue;
@@ -90,7 +90,7 @@ namespace NiceQueue.Adapter.AmazonSQS
 
         public void Delete(string queueName, string receiptHandle)
         {
-            var result = Client.DeleteMessage(GetQueueUrl(queueName), receiptHandle);
+            var result = Client.DeleteMessageAsync(GetQueueUrl(queueName), receiptHandle).Result;
 
             if (result.HttpStatusCode != HttpStatusCode.OK) {
                 throw new CouldNotDeleteMessageException(String.Format("Status code: {0}", result.HttpStatusCode));
