@@ -4,25 +4,32 @@
   "authors": [
     "Vaniday Team"
   ],
-  "owners": [
-    "vaniday"
-  ],
-  "tags": [
-    "queue",
-    "amazonsqs"
-  ],
+  "packOptions": {
+    "owners": [
+      "vaniday"
+    ],
+    "tags": [
+      "queue"
+    ]
+  },
   "description": "Simple abstraction layer for AmazonSQS, RabbitMQ, MemoryQueue and FileQueue",
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": false
   },
   "tooling": {
     "defaultNamespace": "NiceQueue"
   },
-  "dependencies": {
-    "Newtonsoft.Json": "9.0.1"
-  },
   "commands": {},
   "frameworks": {
-    "netcoreapp1.0": {}
+    "net451": {
+      "dependencies": {
+        "Newtonsoft.Json": "8.0.3"
+      }
+    },
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Newtonsoft.Json": "9.0.1"
+      }
+    }
   }
 }
