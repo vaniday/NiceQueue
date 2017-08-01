@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Simple abstraction layer for AmazonSQS, RabbitMQ, MemoryQueue and FileQueue</Description>
+    <VersionPrefix>1.2.1</VersionPrefix>
+    <Authors>Vaniday Team</Authors>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>NiceQueue.Adapter.AmazonSQS</AssemblyName>
+    <OutputType>Library</OutputType>
+    <PackageId>NiceQueue.Adapter.AmazonSQS</PackageId>
+    <PackageTags>queue;amazonsqs</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../NiceQueue/NiceQueue.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.1.1" />
+    <PackageReference Include="AWSSDK.SQS" Version="3.3.1.11" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+  </ItemGroup>
+
+</Project>
